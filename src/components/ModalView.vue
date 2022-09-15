@@ -69,133 +69,232 @@
 
 <style scoped>
   /* Modal Popup */
-.modal-wrap {
-  font-family: 'Noto Sans KR', Helvetica, '맑은 고딕', 'malgun gothic', 'Apple SD Gothic Neo', sans-serif;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 99999;
-}
+  .modal-wrap {
+    font-family: 'Noto Sans KR', Helvetica, '맑은 고딕', 'malgun gothic', 'Apple SD Gothic Neo', sans-serif;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+  }
 
-.modal-main {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 400px;
-  border-radius: 20px;
-  background: #fff;
-}
+  .modal-main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+    border-radius: 20px;
+    background: #fff;
+  }
 
-.modal-logo {
-  position: absolute;
-  left: 50%;
-  top: -8%;
-  transform: translateX(-50%);
-  width: 86px;
-  height: 86px;
-  border-radius: 43px;
-  border: 4px solid #fff;
-  background: #00b7ff url('@/assets/images/ahn-symbol_300x300_white.png') no-repeat center;
-  background-size: 60%;
-}
+  .modal-logo {
+    position: absolute;
+    left: 50%;
+    top: -8%;
+    transform: translateX(-50%);
+    width: 86px;
+    height: 86px;
+    border-radius: 43px;
+    border: 4px solid #fff;
+    background: #00b7ff url('@/assets/images/ahn-symbol_300x300_white.png') no-repeat center;
+    background-size: 60%;
+  }
 
-.modal-notice {
-  padding: 73px 30px 23px 30px;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 22px;
-  text-align: center;
-  letter-spacing: -1.2px;
-}
+  .modal-notice {
+    padding: 73px 30px 23px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: -1.2px;
+  }
 
-.modal-notice strong {
-  color: #ec3f87;
-}
+  .modal-notice strong {
+    color: #ec3f87;
+  }
 
-.modal-notice span {
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  margin-top: 8px;
-  letter-spacing: -0.8px;
-}
+  .modal-notice span {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 8px;
+    letter-spacing: -0.8px;
+  }
 
-.modal-corrections::-webkit-scrollbar {
-  width: 8px;
-  height: 5px;
-  background-color: #f7f7f7;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-}
+  .modal-corrections::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+    background-color: #f7f7f7;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+  }
 
-.modal-corrections::-webkit-scrollbar-thumb {
-  background-color: #aaa;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-}
+  .modal-corrections::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+  }
 
-.modal-corrections {
-  width: 440px;
-  height: 135px;
-  font-size: 13px;
-  line-height: 20px;
-  overflow: auto;
-  background: #eee;
-  margin: 0 auto;
-  padding: 15px 20px;
-  letter-spacing: -0.8px;
-}
+  .modal-corrections {
+    width: 440px;
+    height: 135px;
+    font-size: 13px;
+    line-height: 20px;
+    overflow: auto;
+    background: #eee;
+    margin: 0 auto;
+    padding: 15px 20px;
+    letter-spacing: -0.8px;
+  }
 
-.modal-corrections strong {
-  display: block;
-  width: 100%;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 3px;
-  line-height: 30px;
-}
+  .modal-corrections strong {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    line-height: 30px;
+  }
 
-.corrections-number {
-  float: left;
-  width: 6%;
-}
+  .corrections-number {
+    float: left;
+    width: 6%;
+  }
 
-.corrections-txt {
-  float: right;
-  width: 94%;
-}
+  .corrections-txt {
+    float: right;
+    width: 94%;
+  }
 
-.modal-close {
-  position: absolute;
-  left: 50%;
-  bottom: -1px;
-  transform: translateX(-50%);
-  width: 502px;
-  height: 45px;
-  border-radius: 0 0 19px 19px;
-  
-  font-size: 16px;
-  font-weight: 700;
-  text-align: center;
-  line-height: 45px;
-  color: #fff;
+  .modal-close {
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    transform: translateX(-50%);
+    width: 502px;
+    height: 45px;
+    border-radius: 0 0 19px 19px;
+    
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
 
-  cursor: pointer;
-  background: #00b7ff;
-}
+    cursor: pointer;
+    background: #00b7ff;
+  }
 
-.modal-close i {
-  margin-left: 3px;
-  font-size: 12px;
-  font-weight: 400;
-  font-style: normal;
-}
-/* /Modal Popup */
+  .modal-close i {
+    margin-left: 3px;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @media screen and (max-width: 700px) {
+    .modal-main {
+      width: 71vw;
+      height: 57vw;
+    }
+
+    .modal-notice {
+      padding: 15% 6% 6% 6%;
+      font-size: 2.4vw;
+      line-height: 3.2vw;
+    }
+    
+    .modal-notice span {
+      font-size: 2.3vw;
+      margin-top: 2%;
+    }
+
+    .modal-logo {
+      width: 12.3vw;
+      height: 12.3vw;
+      border: 0.5vw solid #fff;
+    }
+
+    .modal-corrections {
+      width: 88%;
+      height: 33.75%;
+      padding: 2vw 3vw;
+    }
+    
+    .modal-close {
+      width: 71.1vw;
+      height: 6.5vw;
+      font-size: 2.5vw;
+      line-height: 6.5vw;
+    }
+
+    .modal-close i {
+      font-size: 2.3vw;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .modal-main {
+      width: 300px;
+      height: 245px;
+    }
+
+    .modal-notice {
+      padding: 15% 6% 5% 6%;
+      font-size: 12px;
+      line-height: 15px;
+    }
+    
+    .modal-notice span {
+      font-size: 11px;
+    }
+
+    .modal-logo {
+      width: 60px;
+      height: 60px;
+      border: 0.5vw solid #fff;
+    }
+
+    .modal-corrections {
+      width: 260px;
+      height: 80px;
+      padding: 10px 15px;
+      font-size: 10px;
+      line-height: 14px;
+    }
+    
+    .modal-corrections strong {
+      font-size: 11px;
+      margin-bottom: 4px;
+      line-height: 14px;
+    }
+    
+    .corrections-number {
+      float: left;
+      width: 6%;
+    }
+    
+    .corrections-txt {
+      float: right;
+      width: 94%;
+    }
+
+    .modal-close {
+      width: 301px;
+      height: 25px;
+      font-size: 11px;
+      line-height: 25px;
+    }
+
+    .modal-close i {
+      display: none;
+    }
+  }
+  /* /Modal Popup */
 </style>
