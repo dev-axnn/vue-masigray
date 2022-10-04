@@ -4,9 +4,9 @@
     <div class="modal-main">
       <span class="modal-logo"></span>
       <p class="modal-notice">
-        해당 사이트는 <strong>스터디용</strong>으로 제작되었으며,<br/>
-        리소스는 <strong>원저작자</strong>에게 있음을 알려드립니다.<br/>
-        문제사항이 있을 시 연락주시면 빠른 시일 내 조치하겠습니다.<br/>
+        해당 사이트는 <strong>스터디용</strong>으로 제작되었으며,<br />
+        리소스는 <strong>원저작자</strong>에게 있음을 알려드립니다.<br />
+        문제사항이 있을 시 연락주시면 빠른 시일 내 조치하겠습니다.<br />
         <span>본 사이트는 Chrome 에 최적화되어 있습니다.</span>
       </p>
       <div class="modal-corrections">
@@ -17,149 +17,268 @@
         </ul>
         <ul class="clearfix">
           <li class="corrections-number">(2)</li>
-          <li class="corrections-txt">Visual 아래 대표메뉴 소개 스와이퍼 부분에 색상을 수정하여 더 보기좋게 하였습니다.</li>
+          <li class="corrections-txt">
+            Visual 아래 대표메뉴 소개 스와이퍼 부분에 색상을 수정하여 더
+            보기좋게 하였습니다.
+          </li>
         </ul>
         <ul class="clearfix">
           <li class="corrections-number">(3)</li>
-          <li class="corrections-txt">원사이트와 달리 반응형을 추가하였습니다.</li>
+          <li class="corrections-txt">
+            원사이트와 달리 반응형을 추가하였습니다.
+          </li>
         </ul>
       </div>
-      <div class="modal-close">
-        확인했습니다.
-      </div>
+      <div class="modal-close">확인했습니다.</div>
     </div>
   </div>
 </template>
 
 <script>
-  import { onMounted } from '@vue/runtime-core';
-  import $ from 'jquery';
+import { onMounted } from "@vue/runtime-core";
+import $ from "jquery";
 
-  export default {
-    setup(){
-      onMounted(() => {
-        let modalWrap = $('.modal-wrap');
-        let modalClose = $('.modal-close');
-        // click() 을 이용해서 hide() 해보자!
-        modalClose.click(function(){
-          // modalWrap.hide();
-          modalWrap.stop().fadeOut(300);
-          $('html').css('overflow', 'auto');
-        });
-        $('html').keydown(function (key) {
-          if (key.keyCode == 13) {
-            modalWrap.stop().fadeOut(200);
-            $('html').css('overflow', 'auto');
-          }
-        });
-        let modalMain = $('.modal-main');
-        modalMain.click(function (event) {
-          event.stopPropagation();
-        });
-        modalWrap.click(function () {
-          modalWrap.stop().fadeOut(200);
-          $('html').css('overflow', 'auto');
-        });
+export default {
+  setup() {
+    onMounted(() => {
+      let modalWrap = $(".modal-wrap");
+      let modalClose = $(".modal-close");
+      // click() 을 이용해서 hide() 해보자!
+      modalClose.click(function () {
+        // modalWrap.hide();
+        modalWrap.stop().fadeOut(300);
+        $("html").css("overflow", "auto");
       });
+      $("html").keydown(function (key) {
+        if (key.keyCode == 13) {
+          modalWrap.stop().fadeOut(200);
+          $("html").css("overflow", "auto");
+        }
+      });
+      let modalMain = $(".modal-main");
+      modalMain.click(function (event) {
+        event.stopPropagation();
+      });
+      modalWrap.click(function () {
+        modalWrap.stop().fadeOut(200);
+        $("html").css("overflow", "auto");
+      });
+    });
 
-      return{}
-    }
-  }
+    return {};
+  },
+};
 </script>
 
 <style scoped>
-  /* Modal Popup */
-  .modal-wrap {
-    font-family: 'Noto Sans KR', Helvetica, '맑은 고딕', 'malgun gothic', 'Apple SD Gothic Neo', sans-serif;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 99999;
-  }
+/* Modal Popup */
+.modal-wrap {
+  font-family: "Noto Sans KR", Helvetica, "맑은 고딕", "malgun gothic",
+    "Apple SD Gothic Neo", sans-serif;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+}
 
+.modal-main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 400px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.modal-logo {
+  position: absolute;
+  left: 50%;
+  top: -8%;
+  transform: translateX(-50%);
+  width: 86px;
+  height: 86px;
+  border-radius: 43px;
+  border: 4px solid #fff;
+  background: #00b7ff url("@/assets/images/ahn-symbol_300x300_white.png")
+    no-repeat center;
+  background-size: 60%;
+}
+
+.modal-notice {
+  padding: 73px 30px 23px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: -1.2px;
+}
+
+.modal-notice strong {
+  color: #ec3f87;
+}
+
+.modal-notice span {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 8px;
+  letter-spacing: -0.8px;
+}
+
+.modal-corrections::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+  background-color: #f7f7f7;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.modal-corrections::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.modal-corrections {
+  width: 440px;
+  height: 135px;
+  font-size: 13px;
+  line-height: 20px;
+  overflow: auto;
+  background: #eee;
+  margin: 0 auto;
+  padding: 15px 20px;
+  letter-spacing: -0.8px;
+}
+
+.modal-corrections strong {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  line-height: 30px;
+}
+
+.corrections-number {
+  float: left;
+  width: 6%;
+}
+
+.corrections-txt {
+  float: right;
+  width: 94%;
+}
+
+.modal-close {
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  transform: translateX(-50%);
+  width: 502px;
+  height: 45px;
+  border-radius: 0 0 19px 19px;
+
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+
+  cursor: pointer;
+  background: #00b7ff;
+}
+
+.modal-close i {
+  margin-left: 3px;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media screen and (max-width: 700px) {
   .modal-main {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 400px;
-    border-radius: 20px;
-    background: #fff;
-  }
-
-  .modal-logo {
-    position: absolute;
-    left: 50%;
-    top: -8%;
-    transform: translateX(-50%);
-    width: 86px;
-    height: 86px;
-    border-radius: 43px;
-    border: 4px solid #fff;
-    background: #00b7ff url('@/assets/images/ahn-symbol_300x300_white.png') no-repeat center;
-    background-size: 60%;
+    width: 71vw;
+    height: 57vw;
   }
 
   .modal-notice {
-    padding: 73px 30px 23px 30px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 22px;
-    text-align: center;
-    letter-spacing: -1.2px;
-  }
-
-  .modal-notice strong {
-    color: #ec3f87;
+    padding: 15% 6% 6% 6%;
+    font-size: 2.4vw;
+    line-height: 3.2vw;
   }
 
   .modal-notice span {
-    display: block;
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: 8px;
-    letter-spacing: -0.8px;
+    font-size: 2.3vw;
+    margin-top: 2%;
   }
 
-  .modal-corrections::-webkit-scrollbar {
-    width: 8px;
-    height: 5px;
-    background-color: #f7f7f7;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
-    border-radius: 0px;
-  }
-
-  .modal-corrections::-webkit-scrollbar-thumb {
-    background-color: #aaa;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
+  .modal-logo {
+    width: 12.3vw;
+    height: 12.3vw;
+    border: 0.5vw solid #fff;
   }
 
   .modal-corrections {
-    width: 440px;
-    height: 135px;
-    font-size: 13px;
-    line-height: 20px;
-    overflow: auto;
-    background: #eee;
-    margin: 0 auto;
-    padding: 15px 20px;
-    letter-spacing: -0.8px;
+    width: 88%;
+    height: 33.75%;
+    padding: 2vw 3vw;
+  }
+
+  .modal-close {
+    width: 71.1vw;
+    height: 6.5vw;
+    font-size: 2.5vw;
+    line-height: 6.5vw;
+  }
+
+  .modal-close i {
+    font-size: 2.3vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .modal-main {
+    width: 300px;
+    height: 245px;
+  }
+
+  .modal-notice {
+    padding: 15% 6% 5% 6%;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .modal-notice span {
+    font-size: 11px;
+  }
+
+  .modal-logo {
+    width: 60px;
+    height: 60px;
+    border: 0.5vw solid #fff;
+  }
+
+  .modal-corrections {
+    width: 260px;
+    height: 80px;
+    padding: 10px 15px;
+    font-size: 10px;
+    line-height: 14px;
   }
 
   .modal-corrections strong {
-    display: block;
-    width: 100%;
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 3px;
-    line-height: 30px;
+    font-size: 11px;
+    margin-bottom: 4px;
+    line-height: 14px;
   }
 
   .corrections-number {
@@ -173,128 +292,15 @@
   }
 
   .modal-close {
-    position: absolute;
-    left: 50%;
-    bottom: -1px;
-    transform: translateX(-50%);
-    width: 502px;
-    height: 45px;
-    border-radius: 0 0 19px 19px;
-    
-    font-size: 16px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 45px;
-    color: #fff;
-
-    cursor: pointer;
-    background: #00b7ff;
+    width: 301px;
+    height: 25px;
+    font-size: 11px;
+    line-height: 25px;
   }
 
   .modal-close i {
-    margin-left: 3px;
-    font-size: 12px;
-    font-weight: 400;
-    font-style: normal;
+    display: none;
   }
-
-  @media screen and (max-width: 700px) {
-    .modal-main {
-      width: 71vw;
-      height: 57vw;
-    }
-
-    .modal-notice {
-      padding: 15% 6% 6% 6%;
-      font-size: 2.4vw;
-      line-height: 3.2vw;
-    }
-    
-    .modal-notice span {
-      font-size: 2.3vw;
-      margin-top: 2%;
-    }
-
-    .modal-logo {
-      width: 12.3vw;
-      height: 12.3vw;
-      border: 0.5vw solid #fff;
-    }
-
-    .modal-corrections {
-      width: 88%;
-      height: 33.75%;
-      padding: 2vw 3vw;
-    }
-    
-    .modal-close {
-      width: 71.1vw;
-      height: 6.5vw;
-      font-size: 2.5vw;
-      line-height: 6.5vw;
-    }
-
-    .modal-close i {
-      font-size: 2.3vw;
-    }
-  }
-
-  @media screen and (max-width: 550px) {
-    .modal-main {
-      width: 300px;
-      height: 245px;
-    }
-
-    .modal-notice {
-      padding: 15% 6% 5% 6%;
-      font-size: 12px;
-      line-height: 15px;
-    }
-    
-    .modal-notice span {
-      font-size: 11px;
-    }
-
-    .modal-logo {
-      width: 60px;
-      height: 60px;
-      border: 0.5vw solid #fff;
-    }
-
-    .modal-corrections {
-      width: 260px;
-      height: 80px;
-      padding: 10px 15px;
-      font-size: 10px;
-      line-height: 14px;
-    }
-    
-    .modal-corrections strong {
-      font-size: 11px;
-      margin-bottom: 4px;
-      line-height: 14px;
-    }
-    
-    .corrections-number {
-      float: left;
-      width: 6%;
-    }
-    
-    .corrections-txt {
-      float: right;
-      width: 94%;
-    }
-
-    .modal-close {
-      width: 301px;
-      height: 25px;
-      font-size: 11px;
-      line-height: 25px;
-    }
-
-    .modal-close i {
-      display: none;
-    }
-  }
-  /* /Modal Popup */
+}
+/* /Modal Popup */
 </style>
